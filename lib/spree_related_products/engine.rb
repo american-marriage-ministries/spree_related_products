@@ -18,7 +18,7 @@ module SpreeRelatedProducts
 
     initializer "let the main autoloader ignore this engine's overrides" do
       overrides = root.join("app/overrides")
-      Rails.autoloaders.main.ignore(overrides)
+      Rails.autoloaders.main&.ignore(overrides) if Rails.autoloaders.main
     end
 
     class << self
